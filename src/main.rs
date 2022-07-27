@@ -28,10 +28,11 @@ fn main() {
     }
 
     for file in fs::read_dir(dir).unwrap() {
-        println!(
+        writeln!(
+            stdout,
             "{} is {:#?} bytes",
             file.as_ref().unwrap().path().display(),
-            fs::metadata(file.unwrap().path()).unwrap().len()
+            fs::metadata(file.as_ref().unwrap().path()).unwrap().len()
         );
     }
 }
