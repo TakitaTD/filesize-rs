@@ -14,6 +14,7 @@ fn main() {
 
     let cli_args = CliArgs::parse();
     let dir = cli_args.file_path.unwrap_or(String::from("."));
+    let dir = dir.trim();
 
     if !Path::new(&dir).is_dir() {
         color::set_color(&mut stdout, Color::Red);
